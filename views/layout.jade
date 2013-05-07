@@ -12,13 +12,12 @@ html
           a.brand(href='/') #{title}
           div.nav-collapse.collapse
             ul.nav.pull-right
-              li
-                .btn-group
-                  a.btn.btn-info.dropdown-toggle(data-toggle='dropdown',href='/') #{user.nickname}
-                    span.caret
-                  ul.dropdown-menu
-                    li
-                      a(href='/signout') 注销
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown',href='/',role='button') #{user.nickname}
+                  b.caret
+                ul.dropdown-menu(role='menu',aria-labelledby='drop3')
+                  li(role='presentation')
+                    a(role='menuitem',tabindex='-1',href='/signout') 注销
     .container
       - if(success)
         div.alert.alert-success= success
