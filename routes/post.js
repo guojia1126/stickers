@@ -1,4 +1,4 @@
-var Blog = require('../models/blog');
+var Blog = require('../models/sticker');
 
 exports.post = function (req, res) {
   console.log('req.body===='+req.body);

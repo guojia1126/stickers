@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Origin"
+    "title": "Stickers"
   },
   "mongo": {
     "hostname":"localhost",
@@ -8,7 +8,7 @@
     "username":"",
     "password":"",
     "name":"",
-    "db":"origin"
+    "db":"stickers"
   },
-  "cookieSecret":"origin_cs20130419_only"
+  "cookieSecret":"stickers_guojm20130507_"
 }

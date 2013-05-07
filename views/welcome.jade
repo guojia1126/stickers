@@ -1,0 +1,27 @@
+//
+   Created with JetBrains WebStorm.
+   User: Guo
+   Date: 13-5-7
+   Time: 上午9:35
+   To change this template use File | Settings | File Templates.
+
+doctype 5
+html
+  include head
+  block head
+  body
+    .container
+      .masthead
+      h3.muted #{title}
+
+      hr
+
+      block content
+      hr
+
+      footer
+      block footer
+        p &copy; guojiaming 2013
+
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap.js')

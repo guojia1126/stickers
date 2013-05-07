@@ -6,7 +6,12 @@ var User = require('../models/user'),
   myUtils = require('../myutils');
 
 exports.index = function (req, res) {
-  res.render('index');
+  if(req.cookies.user){
+    res.render('index');
+  } else{
+    res.render('hello');
+  }
+
 };
 
 exports.signIn = function (req, res) {

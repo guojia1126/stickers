@@ -1,27 +1,31 @@
-extends layout
-
+extends welcome
+block append head
+  style(type='text/css')
+    #loginForm {
+      text-align: center;
+    }
+    #cfooter {
+      text-align: center;
+    }
 block content
-  form#loginForm.form-horizontal(method='post',action='/login')
-    fieldset
-      legend 用户登录
-      div.control-group
-        label.control-label(for='email') 电子邮箱
-        div.controls
-          input#email.input-xlarge(type='text', name='email', placeholder='电子邮箱')
-          div#alertdiv1.alert.in(style='display:none')
-            button.close(type='button', data-dismiss='alert') x
-            | <strong>提醒！</strong>请输入电子邮箱地址
+  form#loginForm.form-signin(method='post',action='/login')
+    div.control-group
+      div.controls
+        input#email.input-xlarge(type='text', name='email', placeholder='电子邮箱')
+        div#alertdiv1.alert.in(style='display:none')
+          button.close(type='button', data-dismiss='alert') x
+          | <strong>提醒！</strong>请输入电子邮箱地址
+    div.control-group
+      div.controls
+        input#password.input-xlarge(type='password', name='password', placeholder='密码')
+        div#alertdiv2.alert.in(style='display:none')
+          button.close(type='button', data-dismiss='alert') x
+          | <strong>提醒！</strong>请输入密码
 
-      div.control-group
-        label.control-label(for='password') 密码
-        div.controls
-          input#password.input-xlarge(type='password', name='password', placeholder='密码')
-          div#alertdiv2.alert.in(style='display:none')
-            button.close(type='button', data-dismiss='alert') x
-            | <strong>提醒！</strong>请输入密码
-
-      div.form-actions
-        button#submitbtn.btn.btn-large.btn-primary(type='button', onclick='doLogin();') 登录
+    div.form-actions
+      button#submitbtn.btn.btn-large.btn-primary(type='button', onclick='doLogin();') 登录
+      | &nbsp;&nbsp;&nbsp;
+      a(href='/findpwd') 忘记密码？
   script
     function doLogin(){
       if($('#email').val()==''){
@@ -38,3 +42,6 @@ block content
       }
       loginForm.submit();
     }
+block footer
+  #cfooter.container
+    a#signin.btn(href='/signin') 立即注册
