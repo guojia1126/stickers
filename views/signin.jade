@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  form#regFrom.form-horizontal(method='post')
+    fieldset
+      legend 用户注册
+      div.control-group
+        label.control-label(for='email') 电子邮箱
+        div.controls
+          input#email.input-xlarge(type='text', name='email', placeholder='电子邮箱')
+          div#alertdiv1.alert.in(style='display:none')
+            button.close(type='button', data-dismiss='alert') x
+            | <strong>提醒！</strong>请输入电子邮箱地址
+
+      div.control-group
+        label.control-label(for='nickname') 昵称
+        div.controls
+          input#nickname.input-xlarge(type='text', name='nickname', placeholder='昵称')
+          div#alertdiv2.alert.in(style='display:none')
+            button.close(type='button', data-dismiss='alert') x
+            | <strong>提醒！</strong>请输入昵称
+
+      div.control-group
+        label.control-label(for='password') 密码
+        div.controls
+          input#password.input-xlarge(type='password', name='password', placeholder='密码')
+          div#alertdiv3.alert.in(style='display:none')
+            button.close(type='button', data-dismiss='alert') x
+            | <strong>提醒！</strong>请输入密码
+
+      div.control-group
+        label.control-label(for='password-repeat') 重复输入密码
+        div.controls
+          input#password-repeat.input-xlarge(type='password', name='password-repeat', placeholder='请重复输入')
+          div#alertdiv4.alert.in(style='display:none')
+            button.close(type='button',data-dismiss='alert') x
+            | **提醒！**两次输入密码不一致
+
+      div.form-actions
+        button#submitbtn.btn.btn-large.btn-primary(type='button', onclick='doSignin();') 注册
+  script
+    function doSignin(){
+      if($('#email').val()==''){
+        $("#alertdiv1").show();
+        return;
+      }else{
+        $("#alertdiv1").hide();
+      }
+      if($('#nickname').val()==''){
+        $("#alertdiv2").show();
+        return;
+      }else{
+        $("#alertdiv2").hide();
+      }
+      if($('#password').val()==''){
+        $("#alertdiv3").show();
+        return;
+      }else{
+        $("#alertdiv3").hide();
+      }
+      if($('#password').val()!=$('#password-repeat').val()){
+        $("#alertdiv4").show();
+        return;
+      }
+      regFrom.submit();
+    }

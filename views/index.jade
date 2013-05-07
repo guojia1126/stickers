@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  - if(!user)
+    div.hero-unit
+        h1 欢迎来到 #{title}
+        p #{title} 是一个基于 Node.js 的系统
+        p
+          a.btn.btn-primary.btn-large(href='/login') 登录
+          | &nbsp;
+          a.btn.btn-large(href='/signin') 立即注册
+  - else
+    include say
